@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>добавить клиентов</title>
+</head>
+<body>
+    <h2>Добавление клиентов</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <p>
+            <label>Введите ваше имя</label><br>
+            <input type="text" name="name" />
+        </p>
+        <p>
+            <label>Введите ваш емейл</label><br>
+            <input type="email" name="email" />
+        </p>
+        <p>
+            <label>Введите ваш телефон</label><br>
+            <input type="number_tel" name="number_tel" />
+        </p>
+        <p>
+            <label>Введите ваш адрес</label><br>
+            <input type="client_address" name="client_address" />
+        </p>
+        
+            {% for client in clientes %}
+                <option value="{{client.id}}">{{client.name}}</option>
+            {% endfor %}
+            </select>
+        </p>
+        <input type="submit" value="Сохранить" >
+    </form>
+</body>
+</html>

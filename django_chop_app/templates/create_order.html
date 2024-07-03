@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <table>
+        <thead><th>имя</th><th>емейл</th><th>телефон</th><th>адрес</th><th>дата регистрации</th></thead>
+        {% for order in  orders %}
+        <tr>
+            <td>{{ order.connection_client}}</td>
+            <td>{{ order.connection_product }}</td>
+            <td>{{ order.total_price }}</td>
+            <td>{{ order.date_ordered }}</td>
+           
+            <td>
+                <a href="edit/{{order.id}}">Изменить</a> | <a href="delete/{{order.id}}">Удалить</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

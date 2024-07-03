@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>главная</title>
+</head>
+<body>
+    <h2>Список клиентов</h2>
+    <li><a href="create_list_7/">список заказанных клиентом товаров за последние 7 дней (неделю)</a></li>
+    <li><a href="create_list_30/">список заказанных клиентом товаров за последние 30 дней (месяц)</a></li>
+    <li><a href="create_list_365/">список заказанных клиентом товаров за последние 365 дней (год)</a></li>
+    
+    <table>
+        <thead><th>имя</th><th>емейл</th><th>телефон</th><th>адрес</th><th>дата регистрации</th></thead>
+        {% for client in  clientes %}
+        <tr>
+            <td>{{ client.name }}</td>
+            <td>{{ client.email }}</td>
+            <td>{{ client.number_tel }}</td>
+            <td>{{ client.client_address }}</td>
+            <td>{{ client.data_reg }}</td>
+            <td>
+                <a href="edit/{{client.id}}">Изменить</a> | <a href="delete/{{client.id}}">Удалить</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

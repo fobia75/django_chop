@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>список заказов за 365 дней</title>
+</head>
+<body>
+    <table>
+        <thead><th>имя</th><th>товар</th><th>дата</th></thead>
+        {% for order in  orders %}
+        <tr>
+            <td>{{ order.connection_client }}</td>
+            <td>{{ order.connection_product }}</td>
+            <td>{{ order.date_ordered }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
