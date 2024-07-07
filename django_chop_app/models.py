@@ -16,13 +16,25 @@ class Product(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
     quantity_of_goods = models.DecimalField(max_digits=10, decimal_places=2)
-    product_added_date = models.DateTimeField(auto_now_add = True)
+    product_added_date = models.DateTimeField(default = timezone.now)
 
 
 class Order(models.Model):
     connection_client = models.ForeignKey(Client, on_delete=models.CASCADE, null = True) 
-    connection_product = models.ForeignKey(Product, on_delete=models.CASCADE, null = True) 
+    connection_product = models.ForeignKey(Product, on_delete=models.CASCADE, null = True)
     date_ordered = models.DateTimeField(auto_now_add=True)
+    quantity = models.PositiveSmallIntegerField(default=0, verbose_name='Количество')
+
+    def total_price(self):
+        return round(self.product.price() * self.quantity, 2)
+
+
+class Image(models.Model):
+    title = models.CharField(max_length=200)
+    image = models.ImageField(upload_to='images/')
+
+    def __str__(self):
+        return self.title
 
 
 

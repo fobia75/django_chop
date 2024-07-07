@@ -6,12 +6,13 @@
 </head>
 <body>
     <table>
-        <thead><th>имя</th><th>емейл</th><th>телефон</th><th>адрес</th><th>дата регистрации</th></thead>
+        <thead><th>имя</th><th>товар</th><th>итоговая цена</th><th>количество</th><th>дата заказа</th></thead>
         {% for order in  orders %}
         <tr>
             <td>{{ order.connection_client}}</td>
             <td>{{ order.connection_product }}</td>
             <td>{{ order.total_price }}</td>
+            <td>{{ order.quantity }}</td>
             <td>{{ order.date_ordered }}</td>
            
             <td>

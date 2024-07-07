@@ -1,7 +1,7 @@
 
 from django.contrib import admin
 from django.urls import path, include
-from .views import index, create, create_product, create_order, create_list_7, create_list_30
+from .views import index, create, create_product, create_order, create_list_7, create_list_365, create_list_30, upload_image
 
 urlpatterns = [
     path('', index, name= 'index'),
@@ -10,6 +10,6 @@ urlpatterns = [
     path('create_order/', create_order, name= 'create_order'),
     path('create_list_7/', create_list_7, name= 'create_list_7'),
     path('create_list_30/', create_list_30, name= 'create_list_30'),
-    path('create_list_365/', create_list_30, name= 'create_list_30'),
-
+    path('create_list_365/', create_list_365, name= 'create_list_365'), 
+    path('upload/', upload_image, name= 'upload_image'),
 ]
