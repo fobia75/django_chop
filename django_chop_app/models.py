@@ -7,7 +7,7 @@ class Client(models.Model):
     email = models.EmailField()
     number_tel = models.CharField(max_length=12, unique=True)
     client_address =  models.CharField(max_length= 100)
-    data_reg = models.DateTimeField(auto_now_add = True)
+    data_reg = models.DateTimeField(default = timezone.now)
     
 
     
